@@ -1,0 +1,40 @@
+version: "3.1"
+services:
+        rentacar:
+          image: continuumio/anaconda3:latest
+          environment:
+            - NODE_ENV=production
+            - MYSQL_DATABASE="patata" # Change {{db-name}}
+            - MYSQL_USER="proyecto" # Change {{username}}
+            - MYSQL_PASSWORD="patata" # Change {{db-password}}
+          volumes:
+            - ./rentacar:/var/lib/rentacar
+          ports:
+            - 2368:2368
+          depends_on:
+            - mysql
+          restart: always
+
+        db:
+          image: mysql:latest
+          environment:
+            - MYSQL_DATABASE="proyecto" # Change {{db-name}}
+            - MYSQL_ROOT_PASSWORD="patata" # Change {{root-password}}
+            - MYSQL_USER="dbadmin" # Change {{username}}
+            - MYSQL_PASSWORD="patata" # Change {{db-password}}
+          volumes:
+            - ./db:/var/lib/mysql
+          restart: always
+        adminer:
+            image: adminer
+            depends_on:
+              - db
+            restart: always
+            ports:
+              - 8080:8080          
+
+
+
+
+
+
