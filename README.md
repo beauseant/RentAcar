@@ -55,9 +55,13 @@ REST_FRAMEWORK = {
 
 En el directorio Docker se han grabado los ficheros necesarios para ejecutarlo sobre un docker:
 
-    - docker build -t rentacar 
+    - docker build -t rentacar .
     - docker swarm init --advertise-addr 127.0.0.1
-    - docker stack deploy -c rentacar2.yml rentacar
+    - docker stack deploy -c rentacar.yml rentacar
+
+    - Nos conectamos a: http://127.0.1.1:8000/admin/
+    - Usuario admin contraseña 1234qwerty
+
 
 ### Comandos que pueden venir bien:
     - docker exec -it 0195d90f22f2 bash

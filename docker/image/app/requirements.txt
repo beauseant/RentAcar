@@ -1,0 +1,5 @@
+Redis
+Flask
+django
+djangorestframework
+mysqlclient

@@ -1,0 +1,7 @@
+# my.cnf
+[client]
+database = pruebaRest
+user = proyectos
+password = poC_.092P
+default-character-set = utf8
+host = vanir.tsc.uc3m.es
