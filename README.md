@@ -58,9 +58,17 @@ En el directorio Docker se han grabado los ficheros necesarios para ejecutarlo s
     - docker build -t rentacar .
     - docker swarm init --advertise-addr 127.0.0.1
     - docker stack deploy -c rentacar.yml rentacar
-
+    - docker ps vemos los ids de los contenedores:
+    ```
+        CONTAINER ID        IMAGE               COMMAND          
+cf96c0a700ea        rentacar:latest     "/usr/bin/tini -- /b…"   
+4ec8ac67d9c0        mysql:latest        "docker-entrypoint.s…"   
+    ```
+    - Nos conectamos al contenedor rentacar: docker exec -it cf96c0a700ea  bash
+    - Cargamos la estructura de la base de datos inicial: python manage.py migrate
+    - Creamos el usuario admin: python manage.py createsuperuser
     - Nos conectamos a: http://127.0.1.1:8000/admin/
-    - Usuario admin contraseña 1234qwerty
+    - Usuario <usuario anterior> contraseña <contraseña anterior>
 
 
 ### Comandos que pueden venir bien:
